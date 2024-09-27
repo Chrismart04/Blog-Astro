@@ -1,0 +1,24 @@
+---
+import { posts } from '../../blog/posts.js';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  return posts.map(post => ({
+    params: { slug: post.slug }
+  }));
+}
+
+const { slug } = Astro.params;
+const post = posts.find(p => p.slug === slug);
+
+if (!post) {
+  throw new Error(`Post no encontrado: ${slug}`);
+}
+---
+<Layout>
+    <h1>{post.title}</h1>
+    <p>{post.date}</p>
+    <article>
+      {post.content}
+    </article>
+</Layout>

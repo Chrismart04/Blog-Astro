@@ -1,0 +1,89 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header>
+			<h1 class="gradient-title">{title}</h1>
+		</header>
+
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 186, 85, 211;
+		--accent-dark: 75, 0, 130; 
+		--accent-gradient: linear-gradient(
+			90deg,
+			rgba(var(--accent-dark), 1) 0%,
+			rgba(var(--accent), 1) 50%,
+			rgba(var(--accent-light), 1) 100%
+		);
+	}
+
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		color: white; 
+	}
+
+	h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: left;
+  background: linear-gradient(
+    90deg,
+    rgba(75, 0, 130, 1) 0%,    
+    rgba(136, 58, 234, 1) 50%, 
+    rgba(186, 85, 211, 1) 100% 
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+	.gradient-title {
+		background: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.description {
+		color: white;
+		text-align: center;
+		font-size: 1.2rem;
+		margin-top: 0.5rem;
+	}
+
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>

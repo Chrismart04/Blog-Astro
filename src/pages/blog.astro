@@ -1,0 +1,12 @@
+---
+import { posts } from '../blog/posts.js';
+---
+
+<h1>Blog</h1>
+<ul>
+  {posts.map(post => (
+    <li>
+      <a href={`/blog/${post.slug}`}>{post.title}</a> - {post.date}
+    </li>
+  ))}
+</ul>
