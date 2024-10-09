@@ -1,0 +1,15 @@
+---
+import { posts } from "../blog/posts";
+---
+
+<h2>Últimos Posts</h2>
+<ul>
+    {
+        posts.map((post) => (
+            <li>
+                <a href={`/blog/${post.slug}/`}>{post.title}</a> -{" "}
+                <small>{post.date}</small>
+            </li>
+        ))
+    }
+</ul>

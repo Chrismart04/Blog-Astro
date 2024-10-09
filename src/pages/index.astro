@@ -1,34 +1,10 @@
 ---
-import { posts } from '../blog/posts.js';
-import Layout from '../layouts/Layout.astro'
+import Layout from "../layouts/Layout.astro";
+import PostList from "../components/PostList.astro";
 ---
+
 <Layout>
-	<html lang="es">
-		<head>
-		  <meta charset="UTF-8" />
-		  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		  <title>Mi Blog</title>
-		</head>
-		<body>
-		  <header>
-			<h1>Bienvenido a Mi Blog</h1>
-			<p>¡Explora los posts más recientes sobre Astro y otras tecnologías!</p>
-		  </header>
-	  
-		  <main>
-			<h2>Últimos Posts</h2>
-			<ul>
-			  {posts.map(post => (
-				<li>
-				  <a href={`/blog/${post.slug}`}>{post.title}</a> - <small>{post.date}</small>
-				</li>
-			  ))}
-			</ul>
-		  </main>
-	  
-		  <footer>
-			<p>© 2024 Mi Blog. Todos los derechos reservados Chris</p>
-		  </footer>
-		</body>
-	  </html>
+    <h1>Bienvenido a Mi Blog</h1>
+    <p>¡Explora los posts más recientes sobre Astro y otras tecnologías!</p>
+    <PostList />
 </Layout>
